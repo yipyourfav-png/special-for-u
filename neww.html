@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Option 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body{
+  margin:0;
+  font-family:'Roboto',sans-serif;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  background: linear-gradient(rgba(255,230,240,0.4), rgba(255,200,220,0.4)),
+              url('https://drive.google.com/uc?export=view&id=1sn9eKlMxiHxH3_xd1G23ZuQfshwE_9dr') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container{
+  width:90%;
+  max-width:400px;
+  background:rgba(255,255,255,0.55);
+  backdrop-filter:blur(12px);
+  border-radius:30px;
+  padding:25px 20px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(255,105,180,0.3);
+  position:relative;
+}
+
+.slide{ display:none; }
+.active{ display:block; animation:fade 0.7s ease; }
+@keyframes fade{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+
+h1{
+  font-family:'Fredoka One',cursive;
+  color:#ff4d88;
+  text-shadow:1px 1px 2px #fff;
+}
+
+button{
+  padding:12px 25px;
+  border:none;
+  border-radius:20px;
+  margin:8px;
+  cursor:pointer;
+  font-weight:500;
+  font-size:14px;
+}
+.pink{ background:#ff85a2; color:white; }
+.green{ background:#6fcf97; color:white; }
+
+img.slide-photo{
+  width:80%;
+  border-radius:15px;
+  margin:10px 0;
+}
+
+/* Cute font for slide2 and slideNo */
+.cute-font{
+  font-family: 'Fredoka One', cursive;
+  color: #ffb3c6;
+}
+
+/* Confetti animation */
+@keyframes loveFall {
+  0% { transform: translateY(-20px) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(360deg); }
+}
+.confetti{
+  position:fixed;
+  top:-20px;
+  pointer-events:none;
+  opacity:0.8;
+  border-radius:50%;
+}
+
+/* Slide3 long text box */
+.long-text-box{
+  max-height:300px;
+  overflow-y:auto;
+  text-align:left;
+  background: rgba(255,255,255,0.7);
+  padding:15px;
+  border-radius:20px;
+  margin-top:15px;
+  line-height:1.6;
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+  <!-- Slide1 -->
+  <div class="slide active" id="slide1">
+    <img src="https://drive.google.com/uc?export=view&id=YOUR_PHOTO_1_ID" alt="cute" class="slide-photo">
+    <h1>Happy Valentine's Day</h1>
+    <p style="font-weight:400; color:#ff85a2;">my love!</p>
+    <p style="color:#555;">(≧▽≦)</p>
+    <p style="color:#555;">click next!! (つ◔‿◔)つ♥</p>
+    <button class="pink" onclick="nextSlide('slide2')">Next!! ^w^</button>
+  </div>
+
+  <!-- Slide2 -->
+  <div class="slide" id="slide2">
+    <img src="https://drive.google.com/uc?export=view&id=YOUR_PHOTO_2_ID" alt="surprise" class="slide-photo">
+    <h1 class="cute-font">Do you want to open it?</h1>
+    <button class="pink" onclick="nextSlide('slide3')">Yes 💌</button>
+    <button class="green" onclick="nextSlide('slideNo')">No</button>
+  </div>
+
+  <!-- SlideNo -->
+  <div class="slide" id="slideNo">
+    <img src="https://drive.google.com/uc?export=view&id=YOUR_PHOTO_3_ID" alt="cry" class="slide-photo">
+    <h1 class="cute-font">aww let's try again please :&lt;</h1>
+    <button class="pink" onclick="nextSlide('slide1')">Again..?</button>
+  </div>
+
+  <!-- Slide3 -->
+<div class="slide" id="slide3">
+  <h1>A Little Message</h1>
+  <p style="font-weight:500; color:#ff6f91; margin-top:-5px;">Hello my love (^～^;)ゞ</p>
+  <div class="long-text-box">
+    <p>
+      Happy Valentine’s Day 🤍<br>
+      I don’t even know where to start, because every time I try to explain what you mean to me, the words feel smaller than the feeling.
+      Being with you feels like finding a quiet place in the middle of a noisy world. You’re not just someone I talk to every day. You’re the person I think about when something good happens. The one I want to tell first. The one I want beside me when things get overwhelming.
+      You make ordinary days feel softer. You make bad moods easier to handle. And somehow, without trying too hard, you make me feel safe. That’s rare.
+      I love how you exist in my life. The way you laugh. The way you say my name, the way you try, even when things aren’t perfect. You might not realize it, but the smallest things you do stay in my head longer than you think.
+      Thank you for choosing me. For staying. For being patient with my moods, my overthinking, my random energy. Thank you for letting me be fully myself around you without feeling judged.
+      I don’t need grand gestures. I don’t need perfect moments. I just need you to keep being you, and to keep walking beside me.
+      If love is a decision, then I choose you. Not just today because it’s Valentine’s Day, but on random Tuesdays, on stressful weeks, on days when we’re both tired. I choose you in the quiet moments and in the loud ones.
+      You’re not just my boyfriend. You’re my comfort, my favorite notification, my peace.
+      And I hope, in your own way, I can be that for you too.
+      Happy Valentine’s Day, my love.
+      Thank you for being mine. 🤍
+    </p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function nextSlide(slideId){
+  document.querySelectorAll(".slide").forEach(s=>s.classList.remove("active"));
+  document.getElementById(slideId).classList.add("active");
+}
+
+// Confetti random love & circle shapes
+const confettiColors = ['#ff6f91','#ffcccb','#ff85a2','#ffe5ec','#ffc0cb'];
+for(let i=0;i<60;i++){
+  let c = document.createElement("div");
+  c.className="confetti";
+  c.style.left = Math.random()*100 + "vw";
+  c.style.width = (5+Math.random()*8)+"px";
+  c.style.height = (5+Math.random()*8)+"px";
+  c.style.background = confettiColors[Math.floor(Math.random()*confettiColors.length)];
+  c.style.borderRadius = Math.random()<0.5?"50%":"0%";
+  c.style.animation = `loveFall ${(3 + Math.random()*3)}s linear infinite`;
+  document.body.appendChild(c);
+}
+</script>
+
+</body>
+</html>
